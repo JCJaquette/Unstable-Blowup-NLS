@@ -1,7 +1,9 @@
-close all 
-clear
+% close all 
+% clear
 %%% Load the data file; ~~ 200MB to 1.1GB and depends on the Chebfun libraries
-load('blowup_512_1m6.mat') 
+% load('blowup_512_1m6.mat') 
+% load('blowup_A300_4096_1m7.mat')
+% load('blowup_Exp300_4096_1m7.mat')
 
 
 
@@ -35,7 +37,7 @@ invLinfty = (1./Linfty_norms);
 invL2 = (1./L2_norms);
 invZeroMode = 1./abs((Fourier_List(:,1)));
 
-if (SAVE_FILE)
+if (SAVE_FILE) && n_modes == 512
     save('blowup_512_1m6_prep.mat') 
 end
 
