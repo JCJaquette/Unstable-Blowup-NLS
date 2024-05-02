@@ -1,15 +1,16 @@
 
 clear
 % close all
-SAVE_FILE=0;  
+SAVE_FILE=1;  
 
 n_modes = 4096;  
 
 % tMax_1 = 0.070;
 tMax_1 = 0.073;
 tMax = 0.0746;% NLS blowup A300; 0.07443
- 
 
+ % computation time is about 2000 seconds.
+% More time for processing data.
 delta = 1e-4; 
 
 delta_1 = 5e-5; 
@@ -46,7 +47,7 @@ tic, dom = [0 1]; x = chebfun('x',dom);
 
 % USED FOR DATA
 w =     -1.892868406016350e+02 +300*cos(2*pi*x);
-w=w-.5;
+
 
 S = spinop(dom,tspan);
 S.lin    = @(u) (1i)*diff(u,2);
@@ -56,13 +57,21 @@ S.init =  w;
 
 % 'exprk5s8' pecec736
 figure
-tic, u = spin(S,n_modes,timeStep,'dataplot', 'abs','dealias','off','scheme','exprk5s8'); 
-
+tic
+u = spin(S,n_modes,timeStep,'dataplot', 'abs','dealias','off','scheme','exprk5s8'); 
+toc
 
 if (SAVE_FILE)
     save('blowup_A300_4096_1m7.mat') 
 end
+cd .. 
+addpath("Blowup_and_relative_Modes\")
+process_data
+cd("Self_Similar_Analysis\")
 
+if (SAVE_FILE)
+    save('blowup_A300_4096_1m7_prep.mat')
+end
 return
 
 % % %  Hand cranked Lyapunov Perron method for finding pts on stbl manfiold
