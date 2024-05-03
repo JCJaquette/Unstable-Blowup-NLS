@@ -1,15 +1,14 @@
 
-% clear
+clear
 close all
 SAVE_FILE=1;
 
-n_modes = 4096; 
-n_modes =n_modes /2;
+n_modes = 4096;  
 timeStep =1e-7;
 
 
 % tMax = .0044 ;% 300 exp(1i*2*pi*x)
-tMax = .0047;% NLS blowup
+tMax = .00466;% NLS blowup
  % computation time is about 50 seconds.
  % More time for processing data.
 
@@ -18,7 +17,7 @@ tMax_1 =.0000;
 
 delta = 2.5e-6; 
 delta_1 = 1e-3; 
-delta_2 = 2e-5; 
+delta_2 = 5e-6; 
 delta_2 = max([delta_2 ,timeStep]);
 
   
@@ -49,7 +48,6 @@ toc
 if (SAVE_FILE)
     save('blowup_Exp300_4096_1m7.mat')
 end
-
 cd .. 
 addpath("Blowup_and_relative_Modes\")
 process_data
