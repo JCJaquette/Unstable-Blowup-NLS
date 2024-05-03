@@ -36,5 +36,5 @@ After one has created data files with the above method, then each of the figures
 <> Figure 5&6 (c&d) - Matlab_Github/Self_Similar_Analysis/Self_Similar_2
 
 
-Note that for making the figures in "Self_Similar_Analysis", you need to adust the code at the beginning of the file depending on whether you want to make FIgure 5 or 6.
+Note that for making the figures in "Self_Similar_Analysis", you need to adust the code at the beginning of the file depending on whether you want to make Figure 5 or 6.
 
